@@ -16,6 +16,7 @@ export const CreateNotes = ({notes, setNotes}: Props) => {
     const cardTitle = useRef<HTMLInputElement | null>(null);
    //  text of the card
    const cardText =useRef<HTMLTextAreaElement | null>(null);
+   const cardText1 =useRef<HTMLTextAreaElement | null>(null);
    // color of the card
    const cardColor =useRef<HTMLInputElement | null>(null);
    
@@ -35,13 +36,15 @@ export const CreateNotes = ({notes, setNotes}: Props) => {
            id: (new Date()).toString(),
            tag: (cardTitle.current as HTMLInputElement).value,
            question: (cardText.current as HTMLTextAreaElement).value,
-           answer: (cardText.current as HTMLTextAreaElement).value,
+           answer: (cardText1.current as HTMLTextAreaElement).value,
            color: (cardColor.current as HTMLInputElement).value,
            date: (new Date()).toString()
        }]);
       
        (cardTitle.current as HTMLInputElement).value = "";
        (cardText.current as HTMLTextAreaElement).value = "";
+       (cardText1.current as HTMLTextAreaElement).value = "";
+
   }
   return (
       <>
@@ -67,7 +70,7 @@ export const CreateNotes = ({notes, setNotes}: Props) => {
             <FormLabel>Answer</FormLabel>
             <FormControl 
             placeholder="Enter Your Answer" as="textarea" 
-            rows={3} ref={cardText}/>
+            rows={3} ref={cardText1}/>
          </FormGroup>
           
          <FormGroup className="mb-3">
@@ -79,6 +82,7 @@ export const CreateNotes = ({notes, setNotes}: Props) => {
             title="Choose Color of your choice"
             ref ={cardColor}/>
          </FormGroup>
+
          <Button type="submit" variant="primary">
              Add  ➕
          </Button>
