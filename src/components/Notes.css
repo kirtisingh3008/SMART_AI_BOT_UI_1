@@ -1,0 +1,10 @@
+.Note
+{
+    font-weight: bold;
+    font-style: italic;
+    text-align: left;
+}
+.Btn
+{
+   justify-content: space-between;
+}
